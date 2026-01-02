@@ -6,6 +6,7 @@ Send a reference image with prompts to Gemini and generate new images.
 
 import json
 import sys
+import os
 import mimetypes
 import uuid
 import base64
@@ -16,8 +17,18 @@ from google import genai
 from google.genai import types
 
 
-# Configure API key
-API_KEY = "AIzaSyCP3q10C6PxUBoesyJX8HZmtnnT54qcRPw"
+def get_api_key() -> str:
+    """Get API key from environment variable."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("❌ Error: GEMINI_API_KEY environment variable is not set.")
+        print("\nPlease set it:")
+        print("  export GEMINI_API_KEY='your-api-key'")
+        print("\nOr create a .env file and source it:")
+        print("  echo 'export GEMINI_API_KEY=your-api-key' > .env")
+        print("  source .env")
+        sys.exit(1)
+    return api_key
 
 
 def generate_task_id() -> str:
@@ -116,7 +127,7 @@ def query_gemini(image_path: str, prompts: list[str], task_id: str) -> dict:
     print(f"\n📁 Output directory: {output_dir}")
     
     # Create client
-    client = genai.Client(api_key=API_KEY)
+    client = genai.Client(api_key=get_api_key())
     
     # Load reference image
     image_bytes, mime_type = load_image(image_path)
