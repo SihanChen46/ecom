@@ -34,14 +34,23 @@ python gemini_image.py -p PRODUCT_ID [-n NUM] [--model MODEL]
 flowchart TD
     A[输入: 产品ID] --> B{查找产品目录}
     B --> C[LLM 选择主图]
-    C --> D{prompts.json 存在?}
-    D -->|否| E[阶段1: 生成 Prompts]
-    E --> F[保存 prompts.json]
-    F --> G[阶段2: 生成图片]
-    D -->|是| H[加载缓存的 prompts]
-    H --> G
-    G --> I[保存结果]
+    B --> D[LLM 选择文档]
+    C --> E{prompts.json 存在?}
+    D --> E
+    E -->|否| F[阶段1: 图片+文档 → 生成 Prompts]
+    E -->|是| G[加载缓存的 prompts]
+    F --> H[阶段2: 生成图片]
+    G --> H
+    H --> I[保存结果]
 ```
+
+## Supported Files
+
+| Type | Extension | Note |
+|------|-----------|------|
+| Image | `.jpg` `.png` `.webp` `.gif` | LLM auto-selects main image |
+| Document | `.pdf` `.txt` | Direct upload |
+| Document | `.docx` `.doc` | Auto-convert to PDF |
 
 ## Output
 
