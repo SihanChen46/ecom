@@ -1,5 +1,6 @@
-"""Prompt generation from product images and documents."""
+"""SEO title generation for e-commerce listings."""
 
+import json
 import re
 from pathlib import Path
 
@@ -7,25 +8,26 @@ from ..client import GeminiClient, TokenUsage
 from ..utils import load_file, load_image, load_document
 
 
-class PromptGenerator:
+class TitleGenerator:
     def __init__(self, client: GeminiClient):
         self.client = client
 
     def generate(
         self,
         image_path: str,
-        meta_prompt_path: str,
+        title_prompt_path: str,
         documents: list[Path] = None,
-    ) -> tuple[str, list[dict], TokenUsage]:
+    ) -> tuple[dict, TokenUsage]:
+        """Generate SEO titles from product image and documents."""
         image_bytes, mime_type = load_image(image_path)
-        meta_prompt = load_file(meta_prompt_path)
+        title_prompt = load_file(title_prompt_path)
 
         # Build content parts and estimate tokens
         contents = [self.client.create_image_part(image_bytes, mime_type)]
         
         # Estimate tokens by content type
         image_tokens = self.client.estimate_image_tokens(image_bytes)
-        text_tokens = self.client.estimate_text_tokens(meta_prompt)
+        text_tokens = self.client.estimate_text_tokens(title_prompt)
         document_tokens = 0
 
         # Add documents, track temp files for cleanup
@@ -33,12 +35,11 @@ class PromptGenerator:
         for doc in (documents or []):
             doc_bytes, doc_mime, temp_file = load_document(doc)
             contents.append(self.client.create_image_part(doc_bytes, doc_mime))
-            # Documents sent as images/PDFs also consume image tokens
             document_tokens += self.client.estimate_image_tokens(doc_bytes)
             if temp_file:
                 temp_files.append(temp_file)
 
-        contents.append(meta_prompt)
+        contents.append(title_prompt)
         
         content_info = {
             "text_tokens": text_tokens,
@@ -58,19 +59,24 @@ class PromptGenerator:
                 except Exception:
                     pass
 
-        return result.text, self._extract_prompts(result.text), result.usage
+        return self._parse_response(result.text), result.usage
 
-    def _extract_prompts(self, text: str) -> list[dict]:
-        blocks = re.findall(r"```(?:\w+)?\s*([\s\S]*?)```", text)
-        sections = re.split(r"(?:Image \d+|Detail \d+)\s*\[([^\]]+)\]", text)
-        names = [s.strip() for i, s in enumerate(sections) if i % 2 == 1]
+    def _parse_response(self, text: str) -> dict:
+        """Extract JSON from response."""
+        # Try to find JSON block
+        json_match = re.search(r"```(?:json)?\s*([\s\S]*?)```", text)
+        if json_match:
+            try:
+                return json.loads(json_match.group(1).strip())
+            except json.JSONDecodeError:
+                pass
 
-        prompts = []
-        for i, block in enumerate(blocks):
-            block = block.strip()
-            if block and len(block) > 50:
-                prompts.append({
-                    "name": names[i] if i < len(names) else f"Prompt {i + 1}",
-                    "prompt": block,
-                })
-        return prompts
+        # Try direct JSON parse
+        try:
+            return json.loads(text.strip())
+        except json.JSONDecodeError:
+            pass
+
+        # Return raw text as fallback
+        return {"raw_response": text, "parse_error": True}
+

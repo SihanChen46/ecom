@@ -68,7 +68,7 @@ class Catalog:
 Rules: Prefer 主图/main/正面图1. Avoid 细节/detail/尺寸/场景.
 Reply with filename only."""
 
-        selected = self.client.generate_text([prompt]).strip().strip("\"'")
+        selected = self.client.generate_text([prompt]).text.strip().strip("\"'")
         for img in images:
             if img.name == selected or selected in img.name:
                 return img
@@ -90,7 +90,7 @@ Prioritize:
 
 Reply with comma-separated filenames of the top 1-3 most useful docs."""
 
-        selected = self.client.generate_text([prompt]).strip()
+        selected = self.client.generate_text([prompt]).text.strip()
         selected_names = [s.strip().strip("\"'") for s in selected.split(",")]
 
         result = []

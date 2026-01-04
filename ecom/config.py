@@ -18,6 +18,7 @@ class Config:
     model_text: str = "gemini-2.0-flash"
     model_image: str = "gemini-2.0-flash-exp"
     meta_prompt_file: str = "meta_prompt.txt"
+    title_prompt_file: str = "title_prompt.txt"
     output_dir: str = "outputs"
     catalog_dir: str = "catalog"
 
