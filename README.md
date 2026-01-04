@@ -62,3 +62,17 @@ outputs/{product_id}/
     ├── results.json
     └── *.jpg
 ```
+
+## Similarity Check
+
+Compare image embeddings using CLIP model.
+
+```bash
+# All pairs
+python test_similarity.py similarity_tests/my_folder/
+
+# Target mode (compare one vs others)
+python test_similarity.py similarity_tests/my_folder/ -t target.jpg
+```
+
+Test images go in `similarity_tests/` (gitignored).
