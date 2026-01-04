@@ -25,12 +25,15 @@ class Pipeline:
         meta_prompt_path: str = None,
         num_images: int = None,
     ) -> dict:
-        # Resolve image
+        # Resolve assets
         if image_path:
             main_image = image_path
+            documents = []
             pid = Path(image_path).stem
         elif product_id:
-            main_image = str(self.catalog.select_main_image(product_id))
+            assets = self.catalog.get_assets(product_id)
+            main_image = str(assets.main_image)
+            documents = assets.documents
             pid = product_id
         else:
             raise ValueError("product_id or image_path required")
@@ -38,7 +41,7 @@ class Pipeline:
         # Setup paths
         product_dir = Path(self.config.output_dir) / pid
         product_dir.mkdir(parents=True, exist_ok=True)
-        
+
         task_id = generate_task_id()
         task_dir = product_dir / task_id
         task_dir.mkdir(parents=True, exist_ok=True)
@@ -55,7 +58,9 @@ class Pipeline:
             raw_analysis = None
         else:
             meta_prompt_path = meta_prompt_path or self.config.meta_prompt_file
-            raw_analysis, prompts = self.prompt_gen.generate(main_image, meta_prompt_path)
+            raw_analysis, prompts = self.prompt_gen.generate(
+                main_image, meta_prompt_path, documents
+            )
             prompts_file.write_text(json.dumps(prompts, indent=2, ensure_ascii=False))
             if raw_analysis:
                 (task_dir / "analysis.txt").write_text(raw_analysis)
@@ -72,6 +77,7 @@ class Pipeline:
             "product_id": pid,
             "task_id": task_id,
             "main_image": main_image,
+            "documents": [str(d) for d in documents],
             "prompts_used": len(prompts),
             "images_generated": sum(len(r["images"]) for r in results),
             "results": results,
@@ -79,4 +85,3 @@ class Pipeline:
         (task_dir / "results.json").write_text(json.dumps(output, indent=2, ensure_ascii=False))
 
         return output
-
