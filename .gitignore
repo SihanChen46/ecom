@@ -32,3 +32,5 @@ outputs/
 .env.local
 
 catalog/
+materials/
+similarity_tests/
