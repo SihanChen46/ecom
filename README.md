@@ -1,68 +1,55 @@
-# Gemini Image Generator
+# ecom
 
-Generate product marketing images using Google Gemini AI with reference images.
+AI-powered product image generation for e-commerce.
 
 ## Setup
 
-1. **Install dependencies with uv:**
-
 ```bash
-uv venv
-uv sync
+# Copy product catalog
+cp -r "新格率免费体验精选品" catalog
+
+# Install & configure
+uv sync && source .venv/bin/activate
+export GEMINI_API_KEY='...'
 ```
-
-2. **Set your Gemini API key:**
-
-```bash
-export GEMINI_API_KEY='your-api-key-here'
-```
-
-Or add it to your shell profile (`~/.zshrc` or `~/.bashrc`):
-
-```bash
-echo 'export GEMINI_API_KEY=your-api-key-here' >> ~/.zshrc
-source ~/.zshrc
-```
-
-Get your API key from: https://aistudio.google.com/app/apikey
 
 ## Usage
 
 ```bash
-# Activate virtual environment
-source .venv/bin/activate
-
-# Run the script
-python gemini_image.py <image_path> <prompts_json_path>
+python gemini_image.py -p PRODUCT_ID [-n NUM] [--model MODEL]
 ```
 
-### Example
+## Options
 
-```bash
-python gemini_image.py ./product.jpg ./prompts.json
-```
+| Flag | Description |
+|------|-------------|
+| `-p` | Product ID (from `catalog/`) |
+| `-i` | Direct image path |
+| `-n` | Limit generated images |
+| `--model` | `gemini` \| `gemini-3` \| `imagen` \| `imagen-ultra` |
 
-## Prompts Format
+## Pipeline
 
-Create a `prompts.json` file with your image generation prompts:
-
-```json
-[
-    "Commercial Product Photography, 8k resolution...",
-    "Another prompt here...",
-    "Third prompt..."
-]
+```mermaid
+flowchart TD
+    A[输入: 产品ID] --> B{查找产品目录}
+    B --> C[LLM 选择主图]
+    C --> D{prompts.json 存在?}
+    D -->|否| E[阶段1: 生成 Prompts]
+    E --> F[保存 prompts.json]
+    F --> G[阶段2: 生成图片]
+    D -->|是| H[加载缓存的 prompts]
+    H --> G
+    G --> I[保存结果]
 ```
 
 ## Output
 
-Each run creates a unique task folder in `outputs/`:
-
 ```
-outputs/20260101_152503_3d541c36/
-├── reference.png           # Your original reference image
-├── prompt_1_image_1.png    # Generated image for prompt 1
-├── prompt_2_image_1.png    # Generated image for prompt 2
-├── prompt_3_image_1.png    # Generated image for prompt 3
-└── results.json            # Task results summary
+outputs/{product_id}/
+├── prompts.json           # Cached prompts
+└── {timestamp}/
+    ├── reference.jpg
+    ├── results.json
+    └── *.jpg
 ```
