@@ -23,7 +23,7 @@ MODES = {
 
 @dataclass
 class Config:
-    model_text: str = "gemini-3-pro-preview"  # Pro model for prompt generation
+    model_text: str = "gemini-3-flash-preview"  # Flash model for prompt generation
     model_image: str = "gemini-3-pro-image-preview"
     output_dir: str = "outputs"
     catalog_dir: str = "catalog"
