@@ -26,6 +26,7 @@ uv.lock
 
 # Outputs
 outputs/
+manual_outputs/
 
 # Environment variables
 .env
