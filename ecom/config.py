@@ -25,6 +25,7 @@ MODES = {
 class Config:
     model_text: str = "gemini-3-flash-preview"  # Flash model for prompt generation
     model_image: str = "gemini-3-pro-image-preview"
+    # model_image: str = "gemini-2.5-flash-image
     output_dir: str = "outputs"
     catalog_dir: str = "catalog"
     prompts_dir: str = "prompts"
