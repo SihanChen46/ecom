@@ -1,0 +1,62 @@
+[
+  {
+    "index": 1,
+    "name": "封面图 (The Hero Shot)",
+    "prompt": "* A high-quality studio photography group shot featuring four identical canvas mannequin heads, each wearing a short deep wave curly bob wig in a different color. The colors are Natural Black, Honey Blonde, Burgundy Red, and Dark Brown. The wigs are styled perfectly with defined curls and volume. Soft, neutral beige studio background. Professional lighting to highlight the shine and curl definition of the synthetic hair. square image, 1:1 aspect ratio, centered composition.",
+    "type": "封面图 (The Hero Shot)"
+  },
+  {
+    "index": 2,
+    "name": "购物车预览图 (Cart Preview)",
+    "prompt": "* A single canvas mannequin head wearing a Natural Black short deep wave bob wig. The wig is centered, showcasing the 14-inch length hitting just above the shoulders. The curls are bouncy and defined. Pure white background, no shadows, commercial product photography style. Clean and minimalist. square image, 1:1 aspect ratio, centered composition.",
+    "type": "购物车预览图 (Cart Preview)"
+  },
+  {
+    "index": 3,
+    "name": "量大管饱图 (Abundance Shot)",
+    "prompt": "* An artistic close-up shot creating a texture pattern of deep wave curly hair strands. The image is divided into four vertical stripes, each showing the texture of a different wig color: Black, Blonde, Burgundy, and Brown side by side. The hair looks thick, voluminous, and shiny. It conveys abundance and high density (150% density). No background visible, just the rich hair texture filling the frame. square image, 1:1 aspect ratio, centered composition.",
+    "type": "量大管饱图 (Abundance Shot)"
+  },
+  {
+    "index": 4,
+    "name": "尺寸对比图 (Size Comparison)",
+    "prompt": "* A side-profile shot of a realistic female mannequin or model wearing the 14-inch black curly bob wig. The hair ends touch the shoulders and collarbone area, accurately demonstrating the 14-inch length. A subtle graphical line indicates the length with the text \"14 Inch\" floating elegantly next to the hair. Neutral background. The scale is realistic and not exaggerated. square image, 1:1 aspect ratio, centered composition.",
+    "type": "尺寸对比图 (Size Comparison)"
+  },
+  {
+    "index": 5,
+    "name": "场景对比图 (Scenario Comparison)",
+    "prompt": "* A split-screen comparison image. The left half shows a woman with messy, thin, dull natural hair, looking unhappy. The right half shows the same woman looking confident and smiling, wearing the Burgundy Red deep wave wig. The wig looks voluminous, shiny, and stylish. High contrast between the \"before\" and \"after\" states. Bright lighting on the right side. square image, 1:1 aspect ratio, centered composition.",
+    "type": "场景对比图 (Scenario Comparison)"
+  },
+  {
+    "index": 6,
+    "name": "沉浸式场景图 (Immersive Scenario)",
+    "prompt": "* A lifestyle portrait of a fashionable young woman wearing the Honey Blonde deep wave bob wig. She is outdoors during the golden hour, with warm sunlight backlighting the curls, creating a halo effect. She is smiling and looking away candidly. Blurred city street or park background. The image evokes a feeling of confidence and daily beauty. square image, 1:1 aspect ratio, centered composition.",
+    "type": "沉浸式场景图 (Immersive Scenario)"
+  },
+  {
+    "index": 7,
+    "name": "痛点/解决方案图 (Pain/Solution)",
+    "prompt": "* A detailed macro shot of the inside of the wig cap. It clearly shows the \"Rose Net\" construction with an intricate flower pattern lace, demonstrating breathability. A visible adjustable strap and hook are at the back. Visual cues like small blue wind graphics suggest airflow and comfort. The focus is on the quality of the internal material. square image, 1:1 aspect ratio, centered composition.",
+    "type": "痛点/解决方案图 (Pain/Solution)"
+  },
+  {
+    "index": 8,
+    "name": "核心卖点可视化 (USP Visualization)",
+    "prompt": "* A close-up action shot of a curling iron hovering near a strand of the Dark Brown wig hair, implying heat resistance. The hair remains shiny and undamaged. A 3D text overlay says \"High Temp Fiber\" in a sleek metallic font. The image conveys durability and styling versatility. square image, 1:1 aspect ratio, centered composition.",
+    "type": "核心卖点可视化 (USP Visualization)"
+  },
+  {
+    "index": 9,
+    "name": "特写/细节图 (Close-up/Texture)",
+    "prompt": "* An extreme macro shot of the deep wave curls in Dark Brown. The focus is on the definition of a single curl pattern. The texture looks soft, hydrated, and silky, not plastic or frizzy. The lighting accentuates the \"S\" shape of the waves. It invites the viewer to touch the screen. square image, 1:1 aspect ratio, centered composition.",
+    "type": "特写/细节图 (Close-up/Texture)"
+  },
+  {
+    "index": 10,
+    "name": "规格/多合一展示 (The \"What you get\")",
+    "prompt": "* A flat-lay \"Knolling\" style photo on a pastel pink background. In the center is the Natural Black wig neatly folded. Surrounding it are accessories included in the package: a black wig cap, a pink satin storage bag, and a small instruction card. Everything is arranged in a neat grid pattern. Clean, organized, and aesthetically pleasing. square image, 1:1 aspect ratio, centered composition.",
+    "type": "规格/多合一展示 (The \"What you get\")"
+  }
+]

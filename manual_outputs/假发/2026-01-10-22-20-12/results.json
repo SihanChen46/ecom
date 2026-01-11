@@ -1,0 +1,99 @@
+{
+  "product_id": "ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1",
+  "task_id": "2026-01-10-22-20-12",
+  "mode": "top",
+  "reference_images": [
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/主图/14in 黑色 YM18928JF14.jpg",
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/主图/14in 金色 ZJDJS1105-3.png",
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/主图/14in 酒红色 ZJJF3360JH-1.png",
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/主图/14in 深棕色 ZJSZS1105-1.jpg",
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/主图/14in 浅棕色 ZJQZS1105-2.png"
+  ],
+  "documents": [
+    "/Users/sihanchen/Desktop/ecom/catalog/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/新建品基础信息.docx"
+  ],
+  "prompts_count": 10,
+  "images_generated": 10,
+  "results": [
+    {
+      "index": 1,
+      "name": "封面图 (The Hero Shot)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/01_封面图__The_Hero_Shot_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 2,
+      "name": "购物车预览图 (Cart Preview)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/02_购物车预览图__Cart_Preview_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 3,
+      "name": "量大管饱图 (Abundance Shot)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/03_量大管饱图__Abundance_Shot_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 4,
+      "name": "尺寸对比图 (Size Comparison)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/04_尺寸对比图__Size_Comparison_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 5,
+      "name": "场景对比图 (Scenario Comparison)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/05_场景对比图__Scenario_Comparison_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 6,
+      "name": "沉浸式场景图 (Immersive Scenario)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/06_沉浸式场景图__Immersive_Scenario_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 7,
+      "name": "痛点/解决方案图 (Pain/Solution)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/07_痛点_解决方案图__Pain_Solution_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 8,
+      "name": "核心卖点可视化 (USP Visualization)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/08_核心卖点可视化__USP_Visualization_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 9,
+      "name": "特写/细节图 (Close-up/Texture)",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/09_特写_细节图__Close-up_Texture_.jpg"
+      ],
+      "error": null
+    },
+    {
+      "index": 10,
+      "name": "规格/多合一展示 (The \"What you get\")",
+      "images": [
+        "outputs/ZJDJS1105-3 ZJQZS1105-2 ZJSZS1105-1 ZJJF3360JH-1/top/2026-01-10-22-20-12/10_规格_多合一展示__The__What_you_get__.jpg"
+      ],
+      "error": null
+    }
+  ]
+}

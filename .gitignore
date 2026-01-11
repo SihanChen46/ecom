@@ -34,3 +34,4 @@ outputs/
 catalog/
 materials/
 similarity_tests/
+temp/

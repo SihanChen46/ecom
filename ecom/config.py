@@ -2,7 +2,7 @@
 
 import os
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 
 MODELS = {
@@ -12,15 +12,22 @@ MODELS = {
     "imagen-ultra": "imagen-4.0-ultra-generate-001",
 }
 
+# Image generation modes
+MODES = {
+    "cover": "prompts/cover.txt",      # 主图 - 创意风格
+    "preview": "prompts/preview.txt",  # 预览图 - 写实还原
+    "top": "prompts/top.txt",          # 全套11张 - 电商详情页完整方案
+    "adapt": "prompts/adapt.txt",      # 色彩适配 - 目标图+产品图合成
+}
+
 
 @dataclass
 class Config:
-    model_text: str = "gemini-2.0-flash"
-    model_image: str = "gemini-2.0-flash-exp"
-    meta_prompt_file: str = "meta_prompt.txt"
-    title_prompt_file: str = "title_prompt.txt"
+    model_text: str = "gemini-3-pro-preview"  # Pro model for prompt generation
+    model_image: str = "gemini-3-pro-image-preview"
     output_dir: str = "outputs"
     catalog_dir: str = "catalog"
+    prompts_dir: str = "prompts"
 
     @staticmethod
     def get_api_key() -> str:
@@ -35,3 +42,8 @@ class Config:
             raise ValueError(f"Unknown model: {model_name}")
         return cls(model_image=MODELS[model_name], **kwargs)
 
+    def get_prompt_file(self, mode: str) -> str:
+        """Get the prompt file path for a given mode."""
+        if mode not in MODES:
+            raise ValueError(f"Unknown mode: {mode}. Available: {list(MODES.keys())}")
+        return MODES[mode]
